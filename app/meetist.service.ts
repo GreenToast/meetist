@@ -1,5 +1,6 @@
 import {Injectable} from 'angular2/core';
-import {Person, SwipeStatus} from "./person.interface";
+import {Person} from "./person.interface";
+import {SwipeStatus} from "./swipe-status.enum";
 
 @Injectable()
 export class MeetistService {
