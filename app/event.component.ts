@@ -1,10 +1,12 @@
 import {Person} from './person.component'
 export class Event {
-  constructor(
-    public time:number,
-    public name:string) { }
+    public guests:Person[];
+    constructor(
+        public time:number,
+        public name:string
+        ) 
+        { this.guests = [];  }
     
-    private guests:Person[];
     
        
 }
