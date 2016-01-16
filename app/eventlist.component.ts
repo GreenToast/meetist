@@ -6,28 +6,20 @@ import {Person} from './person.component';
     selector: 'eventlist',
     template: `
         <h1>{{title}}</h1>
-        <!--<ul>
-            <li *ngFor="#event of events">
-                {{ event.name }} at {{ event.time }} ({{ event.guests.length }} participants)
-                <ul>
-                    <li *ngFor="#guest of event.guests">
-                        {{ guest.forname }} {{ guest.surname }} 
-                    </li>
-                </ul>
-            </li>
-        </ul>-->
-        <table style="width:100%">
-            <tr>
-            <td>Event</td>
-            <td>Time</td>
-            <td>no. participants</td>
-            </tr>
-            <tr *ngFor="#event of events">
-                <td>{{ event.name }}</td>
-                <td>{{ event.time }}</td> 
-                <td>{{ event.guests.length }}</td>
-            </tr>
-        </table>
+        <div class="event-list-table" >
+            <table style="width:100%">
+                <tr>
+                    <td>Event</td>
+                    <td>Time</td>
+                    <td>no. participants</td>
+                </tr>
+                <tr *ngFor="#event of events; #i=index" (click)="handleClick(i)">
+                    <td>{{ event.name }}</td>
+                    <td>{{ event.time }}</td> 
+                    <td>{{ event.guests.length }}</td>
+                </tr>
+            </table>
+        </div>
         `
 })
 
@@ -52,5 +44,11 @@ export class EventlistComponent {
         this.events[1].guests.push(new Person('Forname1', 'Surname1'));
         this.events[2].guests.push(new Person('Forname2', 'Surname2'));
         this.events[2].guests.push(new Person('Forname5', 'Surname5'));
+        
+        
+     }
+     
+     handleClick(i:number) {
+         console.log("Clicked on ",i);
      }
 }
