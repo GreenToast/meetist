@@ -14,7 +14,7 @@ import {MeetistService} from "./meetist.service";
     </div>
 
     <div *ngIf="people.length>0">
-        <div *ngFor="#person of People">
+        <div *ngFor="#person of people">
             <h2>{{person.name}}</h2>
             <img src="{{person.imgUrl}}"/>
             <p>
@@ -37,6 +37,7 @@ export class SwipeComponent implements OnInit {
     ngOnInit() {
         this._meetistService.getPeopleForEvent(123).then(people => {
             this.people = people;
+            console.log(this.people);
         })
     }
 }
